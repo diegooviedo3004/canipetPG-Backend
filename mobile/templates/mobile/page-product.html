@@ -1,0 +1,81 @@
+{%extends 'mobile/layout.html' %}
+
+{%load static %}
+
+{%block content %}
+<div class="login-back-button mt-4"><a href="{%url 'index'%}"><svg width="32" height="32" viewBox="0 0 16 16" class="bi bi-arrow-left-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+  </svg></a></div>
+
+<div class="page-content-wrapper py-3">
+      <div class="container">
+        <div class="card product-details-card mb-3"><span class="badge bg-warning text-dark position-absolute product-badge">{{ product.descuento }}%</span>
+          <div class="card-body">
+            <div class="product-gallery owl-carousel">
+              {% if product.image %}
+              <div class="single-product-image"><a class="gallery-img2" href="{{ product.image.url }}" data-effect="mfp-zoom-in"><img class="rounded" src="{{ product.image.url }}" alt="Producto"></a></div>
+              {% else %}
+              <div class="single-product-image"><a class="gallery-img2" href="" data-effect="mfp-zoom-in"><img class="rounded" src="{% static 'mobile/img/icons/image_not_found.png' %}" alt="Producto"></a></div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+
+            <div class="card single-product-card shadow">
+              <div class="card-body p-3">
+                <h4>{{ product.nombre }}</h4>
+                <!-- Product Price-->
+                <p class="sale-price">C${{ product.precio }}
+                <!-- <span>$13.42</span> -->
+              </div>
+            </div>
+
+        <div class="card product-details-card mb-3 direction-rtl mt-3">
+          <div class="card-body">
+            <h5>Descripción</h5>
+            <p>{{ product.descripcion }}</p>
+            <div class="rating-card-two mt-4">
+             
+              <!-- Rating Details-->
+
+            </div>
+          </div>
+        </div>
+        <div class="card related-product-card">
+          <div class="card-body">
+            <h5 class="mb-3">Productos relacionados</h5>
+            <div class="row g-3">
+              {%for producto in productos %}
+              <!-- Single Top Product Card-->
+              <div class="col-6 col-sm-4 col-lg-3">
+                <div class="card single-product-card shadow">
+                  <div class="card-body p-3">
+                  {%if producto.image %}
+                  <!-- Product Thumbnail-->
+                  <a class="product-thumbnail d-block" href="/mobile/product_detail/{{ producto.id }}"><img src="{{ producto.image.url }}" alt="Producto">
+                  {%endif%}
+                    <!-- Badge--><span class="badge bg-primary">Sale</span></a>
+                    <!-- Product Title-->
+                    <h5>{{ producto.nombre }}</h5>
+                    <!-- Product Price-->
+                    <p class="sale-price">C${{producto.precio}}</p><a class="btn btn-danger btn-sm" href="/mobile/product_detail/{{ producto.id }}">Ir</a>
+                  </div>
+                </div>
+              </div>
+              {%endfor%}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+
+{%endblock%}
+    
+    
+    
+
+
+   

@@ -1,0 +1,179 @@
+{%extends 'mobile/layout.html'%}
+{%load static %}
+
+{%block style%}
+<link rel="stylesheet" href="{% static 'mobile/perfil_veterinariaMapeo/index.css' %}">
+{%endblock%}
+
+{%block content%}
+    <script type="text/javascript">
+
+    //var received_data = String.raw`{{ clinicas.nombre_clinica }}`;
+    var latitud = "{{ clinicas.lat }}";
+    latitud = parseFloat(latitud)
+    var longitud = "{{ clinicas.lon }}";
+    longitud = parseFloat(longitud)
+    
+    var testtitle = "{{ clinicas.nombre_clinica }}";
+
+    console.log(latitud, longitud,testtitle);
+    let map;
+    let marcadores= [];
+
+function initMap() {
+    const bangalore = { lat: latitud, lng: longitud};
+    map = new google.maps.Map(document.getElementById("map"), { 
+    center: { lat: latitud, lng: longitud },
+    title: "{{clinicas.nombre_clinica}}",
+    zoom: 17,
+    mapTypeId: "roadmap",
+    mapId: "538588bd456436d8"
+    
+  });
+
+
+
+  // Add a marker at the center of the map.
+  addMarker(bangalore, map);
+
+
+// Adds a marker to the map.
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+
+  let marker = new google.maps.Marker({
+    position: location,  
+    map: map,
+    title: "{{clinicas.nombre_clinica}}",
+    icon: {
+      url: "{% static 'mobile/perfil_veterinariaMapeo/v2.png' %}",
+      scaledSize: new google.maps.Size(60,61)
+    },
+    label: {
+      text:"{{clinicas.nombre_clinica}}",
+      color: "black",
+      fontSize: "15px", 
+      className: "marker-position"
+    }
+
+    
+
+  });
+ 
+
+  marcadores.push(marker);
+  marcadores[0].setAnimation(google.maps.Animation.BOUNCE);
+  //marcadores[0].addListener("click", toggleBounce);
+  //console.log(marcadores);
+
+}
+
+
+
+function toggleBounce() {
+  if (marcadores[0].getAnimation() !== null) {
+    marcadores[0].setAnimation(null);
+  } else {
+    marcadores[0].setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+//console.log("L" + marcadores.length
+
+
+// setea el marcador de la posicion 0 y elimina el ultimo elemento de la lista de marcadores
+function setMapOnAll(map) {
+
+    //console.log(marcadores);
+    marcadores[0].setMap(map);
+    marcadores.shift()
+
+  }
+
+  // Removes the markers from the map, but keeps them in the array.
+  function hideMarkers() {
+    setMapOnAll(null);
+  }
+
+
+
+}
+window.initMap = initMap;
+    </script>
+
+    <!-- Web App Manifest-->
+    <!-- <link rel="manifest" href="{% static 'mobile/anifest.json' %}"> -->
+
+    <div class="page-content-wrapper">
+      <div class="container">
+        <div class="pt-3 d-block"></div>
+        <!-- <div class="blog-details-post-thumbnail position-relative">
+            <img class="w-100 rounded-lg" src="{% static 'mobile/img/bg-img/24.jpg' %}" alt="">
+            <a class="post-bookmark position-absolute card-badge text-danger" href="#"><i class="fa fa-bookmark"></i></a>
+        </div> -->
+      </div>
+      <div class="blog-description py-3">
+        <div class="container"><a class="badge bg-primary mb-2 d-inline-block" href="#">Veterinaria</a>
+          <h3 class="mb-3">{{clinicas.nombre_clinica}}</h3>
+          <div class="d-flex align-items-center mb-4"><a class="badge-avater" href="#"><img class="img-circle" src="{% static 'mobile/img/bg-img/user1.png' %}" alt=""></a><span class="ms-2">Cliente: {{Client.nombre}}</span></div>
+         <p>Aqui hay una description</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pt-3 d-block"></div>
+        <div class="blog-details-post-thumbnail position-relative">
+          <div class=" mt-5 mb-5 ml-5 mr-5">
+            <div id="map" style="height: 600px"></div>
+          </div>
+            
+        </div>
+      </div>
+      
+      <!-- All Comments-->
+      <div class="rating-and-review-wrapper pb-3 mt-3">
+        <div class="container">
+          <h6 class="mb-3">All comments</h6>
+          <!-- Rating Review-->
+          <div class="rating-review-content">
+            <ul class="ps-2">
+              <li class="single-user-review d-flex">
+                <div class="user-thumbnail mt-0"><img src="{% static 'mobile/img/bg-img/2.jpg' %}" alt=""></div>
+                <div class="rating-comment">
+                  <p class="comment mb-1">I strongly recommend this agency to everyone interested in running a business.</p><span class="name-date">12 Dec 2021</span>
+                </div>
+              </li>
+              <li class="single-user-review d-flex">
+                <div class="user-thumbnail mt-0"><img src="{% static 'mobile/img/bg-img/20.jpg' %}" alt=""></div>
+                <div class="rating-comment">
+                  <p class="comment mb-1">You've saved our business! Thanks guys, keep up the good work! The best on the net!</p><span class="name-date">8 Dec 2021</span>
+                </div>
+              </li>
+              <li class="single-user-review d-flex">
+                <div class="user-thumbnail mt-0"><img src="{% static 'mobile/img/bg-img/21.jpg' %}" alt=""></div>
+                <div class="rating-comment">
+                  <p class="comment mb-1">Absolutely wonderful! I wish I would have thought of it first. I would be lost without agency.</p><span class="name-date">28 Nov 2021</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Comment Form-->
+      <div class="ratings-submit-form pb-3">
+        <div class="container">
+          <h6 class="mb-3">Submit a comment</h6>
+          <form action="#">
+            <div class="form-group">
+              <textarea id="text-coment" class="form-control mb-3 border-0" name="comment" cols="30" rows="10" placeholder="Write a comment"></textarea>
+            </div>
+            <button id="send-coment" class="btn btn-sm btn-primary" type="submit">Post Comment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    {%endblock%}
+    
+    
+

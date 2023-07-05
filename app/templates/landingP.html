@@ -1,0 +1,368 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Canipet</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'landing/css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'landing/css/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'landing/images/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'landing/css/jquery.mCustomScrollbar.min.css' %}">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="{% static 'landing/images/loading.gif' %}" alt="#" /></div>
+      </div>
+      <!-- end loader -->
+      <!-- header -->
+         <nav class="navbar container">
+             <a href="{%url 'home'%}" class="brand text-decoration-none">CaniPet</a>
+             <div class="menu" id="menu">
+                 <ul class="menu-list">
+                     <li class="menu-item">
+                        <!-- Quienes somos -->
+                         <a href="#quienes" class="menu-link is-active text-decoration-none">
+                             <i class="menu-icon ion-md-home"></i>
+                             <span class="menu-name  fa fa-solid fa-house"></span>
+                             
+                         </a>
+                     </li>
+                     <!-- Funcionalidad -->
+                     <li class="menu-item">
+                         <a href="#funcionalidad" class="menu-link text-decoration-none">
+                             <i class="menu-icon ion-md-search"></i>
+                             <span class="menu-name fa fa-solid fa-rocket"></span>
+                         </a>
+                     </li>
+                     <!-- conocenos -->
+                     <li class="menu-item">
+                         <a href="#conocenos" class="menu-link text-decoration-none">
+                             <i class="menu-icon ion-md-cart"></i>
+                             <span class="menu-name fa fa-solid fa-users"></span>
+                         </a>
+                     </li>
+                     <!--User login-->
+                     <li class="menu-item">
+                         <a href="{% url 'app' %}" class="menu-link text-decoration-none">
+                             <i class="menu-icon ion-md-contact"></i>
+                             <span class="menu-name fa fa-solid fa-circle-user"></span>
+                         </a>
+                     </li>
+                 </ul>
+             </div>
+         </nav>
+      
+      <!-- end header -->
+      <!-- banner -->
+      <section class="banner_main">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 ">
+                  <div class="text-bg">
+                     <h1>CaniPet</h1>
+                     <p>Para empezar a crear tu veterinaria y darte a conocer empieza ahora</p>
+                     <a href="{% url 'app'%}">Empezar</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- end banner -->
+      <!-- three_box -->
+      <div class="three_box">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <figure><img src="{% static 'landing/images/perrocongafas.jpg' %}" alt="#"/></figure>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <figure><img src="{% static 'landing/images/loro (1).jpeg' %}" alt="#"/></figure>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="box_text">
+                     <figure><img src="{% static 'landing/images/photo-1514888286974-6c03e2ca1dba (1).jpg' %}" alt="#"/></figure>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- three_box -->
+      <!-- hottest -->
+      <div  class="hottest" id="quienes">
+         <div class="container">
+            <div class="row d_flex">
+               <div class="col-md-5">
+                  <div class="titlepage">
+                     <h2>¿Quienes somos? <br></h2>
+                  </div>
+               </div>
+               <div class="col-md-7">
+                  <div class="hottest_box">
+                     <p>A lo largo del día una veterinaria puede llegar a recibir más de 60 pacientes, sin contemplar los casos de emergencia que siempre causan sosobra y estrés para los dueños de las mascotas y un poco de desorden en las veterinarias, conociendo esas problemática surge CANIPET. 
+                        <br>
+                        CANIPET es un multisistema  que promete ayudar a solucionar múltiples necesidades para micro y macro veterinarias que no cuentan con un sistema de trabajo automatizado, la exclusividad de esta aplicación web es que también cuenta con un apartado para que los dueños de los pacientes puedan interactuar con la veterinaria desde su móvil.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+      <!-- end hottest -->
+      <!-- choose  section -->
+      <div class="choose " id="funcionalidad">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-8">
+                  <div class="titlepage">
+                     <h2>Funcionalidad</h2>
+                     <p>Con el fin de presentar mas acerca y caracteristicas de CaniPet y el enfoque a los clientes con soporte siempre de atencion.</p><br>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div class="row d_flex">
+               <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                  <div class="padding_with">
+                     <div class="row">
+                        <div class="col-md-6 padding_bottom">
+                           <div class="choose_box">
+                              <i><img src="{% static 'landing/images/medicina-alternativa.png' %}" alt="#"/></i>
+                              <div class="choose_text">
+                                 <h3>Cartilla de Vacunas</h3>
+                                 <p>El dueño del paciente tiene acceso a la cartilla de vacunas de su mascota asi el pueda administrar con cuidado. </p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 padding_bottom" >
+                           <div class="choose_box">
+                              <i><img src="{% static 'landing/images/lista-de-verificacion.png' %}" alt="#"/></i>
+                              <div class="choose_text">
+                                 <h3>Sistema Inventario</h3>
+                                 <p>Cuenta con un sistema de inventario que ayudará a automatizar los procesos de almacenamiento de las veterinarias. </p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 padding_bottom2">
+                           <div class="choose_box">
+                              <i><img src="{% static 'landing/images/marcador-de-posicion.png' %}" alt="#"/></i>
+                              <div class="choose_text">
+                                 <h3>Ubicación</h3>
+                                 <p>Cuenta con la API de google Maps que te ayudará a encontrar la veterinaria más cercana afiliada al sistema. </p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="choose_box">
+                              <i><img src="{% static 'landing/images/cita.png' %}" alt="#"/></i>
+                              <div class="choose_text">
+                                 <h3>Citas Medicas</h3>
+                                 <p>Contamos con un sistema de registro de citas médicas donde podrá agendar, retrasar o cancelar la cita de su mascota.</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                  <div class="choose_img">
+                     <figure><img src="{% static 'landing/images/iStock_88469321_MEDIUM-1280x720.jpg' %}" alt="#"/></figure>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                  <a class="read_more" href="#">Read More</a>
+               </div>
+            </div> -->
+         </div>
+      </div>
+      </div>
+      <!-- end choose  section -->
+      <!-- product  section -->
+      <!-- <div class="product">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="titlepage">
+                     <h2>Our Product</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+                  <div class="product_box">
+                     <figure><img src="images/product1.jpg" alt="#"/></figure>
+                     <h3 class="black">vegetable</h3>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                  <div class="product_box">
+                     <figure><img src="images/product2.jpg" alt="#"/></figure>
+                     <h3 >weat</h3>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 padding_right0">
+                  <div class="product_box">
+                     <figure><img src="images/product3.jpg" alt="#"/></figure>
+                     <h3>fruit</h3>
+                  </div>
+               </div>
+               <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 padding_left0">
+                  <div class="product_box">
+                     <figure><img src="images/product4.jpg" alt="#"/></figure>
+                     <h3>sunflowere</h3>
+                  </div>
+               </div>
+               <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 padding_right0">
+                  <div class="product_box">
+                     <figure><img src="images/product5.jpg" alt="#"/></figure>
+                     <h3>Livestock</h3>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div> -->
+      <!-- end product  section -->
+      <!-- about -->
+      <div class="about" id="conocenos">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Conócenos</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div id="myCarousel" class="carousel slide about_Carousel " data-ride="carousel">
+                     <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+
+                     </ol>
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <div class="container">
+                              <div class="carousel-caption ">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="test_box">
+                                          <i><img src="{% static 'landing/images/diego-modified (1).png' %}" alt="#"/></i>
+                                          <h4>Diego O.</h4>
+                                          <p>Estudiante de ingeniería en computación. Apasionado por aprender algo cada día, automatizando lo que pueda en el proceso. <br>Profesor asistente en CS50X.ni</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="container">
+                              <div class="carousel-caption">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="test_box">
+                                          <i><img src="{% static 'landing/images/ally-modified (1).png' %}" alt="#"/></i>
+                                          <h4>Andrea M.</h4>
+                                          <p>¡Si Dios guía nuestros pasos tendremos una vida llena de luz!. Soy estudiante de Ingeniería en Computación, actualmente usuario novato de Fedora Linux, quiero que la programación se extienda a las escuelas y es mi motivo principal para seguir estudiando y dar clases, en mis tiempos libres me gusta hacer jardinería y jugar con mis gatos. ¡Instruye con lo poco que sabes!,siempre habrá alguien que lo agradezca. :3</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="carousel-item">
+                           <div class="container">
+                              <div class="carousel-caption">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="test_box">
+                                          <i><img src="{% static 'landing/images/vic-modified (1).png' %}" alt="#"/></i>
+                                          <h4>Victor Z. </h4>
+                                          <p>Soy estudiante de la carrera de ingeniería en computación. Me gusta la programación y estar en constante aprendizaje de nuevas tecnologías para la optimización de los sistemas.</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Previous</span>
+                     </a>
+                     <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                     <span class="sr-only">Next</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end about -->
+      </div>
+      <!--  footer -->
+      <footer id="contact">
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>Copyright 2022 All Right Reserved By <a href="#"> CaniPet Nicaragua</a></p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+      </footer>
+
+      <!-- fontawesonme -->
+      <script src="https://kit.fontawesome.com/01bd3dc0f5.js" crossorigin="anonymous"></script>
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="{% static 'landing/js/jquery.min.js' %}"></script>
+      <script src="{% static 'landing/js/popper.min.js' %]"></script>
+      <script src="{% static 'landing/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'landing/js/jquery-3.0.0.min.js' %}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'landing/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'landing/js/custom.js' %}"></script>
+   </body>
+</html>
+

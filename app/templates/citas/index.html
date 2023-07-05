@@ -1,0 +1,50 @@
+{% extends '../layout.html' %}
+{% block title %}
+Pacientes
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+{% endblock %}
+{% block scripts %}
+<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+{% endblock %}
+{% block main %}
+<div class="container">
+    <a href="{% url 'crear_citas' %}" class="btn btn-primary mt-2 mb-2">Agendar una cita</a>
+    <table id="myTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Mascota</th>
+                <th>Nombre</th>
+                <th>Agregado hace</th>
+                <th>Fecha cita</th>
+                <th>Hora</th>
+                <th>Status</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{i.paciente.nombre}}</a></td>
+            <td><a href="{% url 'client_profile' i.paciente.cliente.id %}">{{i.paciente.cliente.nombre}}</a></td>
+            <td>{{i.created_at | timesince}}</td>
+            <td>{{i.fecha_cita}}</td>
+            <td>{{i.hora}}</td>
+            {% if i.fecha_cita > current_date or i.fecha_cita == current_date and i.hora > current_time %}
+            <td><span class="badge badge-success">Pendiente</span></td>
+            {%else%}
+            <td><span class="badge badge-danger">Pasada</span></td>
+            {%endif%}
+            <td><a href="{% url 'editar_cita' i.id %}" class="btn btn-primary">Editar</a></td>
+         </tr>
+         {% endfor %}
+        </tbody>
+        </table>
+    </div>
+{% endblock %}

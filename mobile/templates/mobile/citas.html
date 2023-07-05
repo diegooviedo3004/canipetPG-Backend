@@ -1,0 +1,49 @@
+{%extends 'mobile/layout.html' %}
+
+{%load static %}
+
+{%block content %}
+
+<div class="page-content-wrapper py-3">
+  <div class="container">
+    {% if citas %}
+    {%for cita in citas%}
+
+
+    
+    <!-- Service Card-->
+    <div class="card service-card bg-success bg-gradient mb-3">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="service-text">
+            <h5>El veterinario {{ cita.user }} agendó una cita</h5>
+            <p class="mb-0">para {{cita.motivo}} con {{cita.paciente.nombre}} el {{ cita.fecha_cita }}</p>
+          </div>
+          <div class="service-img"><img src="img/demo-img/pwa.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+    {% else %}
+    <div class="card service-card bg-warning bg-gradient mb-3">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <div class="service-text">
+            <h5>No existen citas por el momento</h5>
+          </div>
+          <div class="service-img"><img src="img/demo-img/pwa.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    </div>
+  </div>
+</div>
+
+  
+
+{% endblock %}
+    
+
+ 

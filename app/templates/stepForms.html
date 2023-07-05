@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos</title>
+    <script>
+        const process = { env: {} };
+        process.env.GOOGLE_MAPS_API_KEY =
+          "AIzaSyAKFipNOUTn8LjisXG6Ei2IQiB1T2fb4xA";
+      </script>
+    <!----======== CSS ======== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'step/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo.png' %}">
+    <title>Datos Personales</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo.png' %}">
+
+    <!----===== Iconscout CSS ===== -->
+   
+
+    <!--<title>Responsive Regisration Form </title>--> 
+</head>
+<body>
+    <div class="mx-auto container">
+
+        <!-- Progress Form -->
+        <form id="progress-form" method="POST" class="p-4 progress-form" action="{% url 'step_form' %}" lang="en">
+          {% csrf_token %}
+          <!-- Step Navigation -->
+          <div class="d-flex align-items-start mb-3 sm:mb-5 progress-form__tabs" role="tablist">
+            <button id="progress-form__tab-1" class="flex-1 px-0 pt-2 progress-form__tabs-item" type="button" role="tab" aria-controls="progress-form__panel-1" aria-selected="true">
+              <span class="d-block step" aria-hidden="true">Step 1 <span class="sm:d-none">of 3</span></span>
+              Datos personales.
+            </button>
+            <button id="progress-form__tab-2" class="flex-1 px-0 pt-2 progress-form__tabs-item" type="button" role="tab" aria-controls="progress-form__panel-2" aria-selected="false" tabindex="-1" aria-disabled="true">
+              <span class="d-block step" aria-hidden="true">Step 2<span class="sm:d-none">of 2</span></span>
+              Dirección de la veterinaria.
+            </button>
+          </div>
+          <!-- / End Step Navigation -->
+      
+          <!-- Step 1 -->
+          <section id="progress-form__panel-1" role="tabpanel" aria-labelledby="progress-form__tab-1" tabindex="0">
+            <div class="sm:d-grid sm:grid-col-2 sm:mt-3">
+              <!-- <div class="mt-3 sm:mt-0 form__field">
+                <label for="first-name">
+                  First name
+                  <span data-required="true" aria-hidden="true"></span>
+                </label>
+                <input id="first-name" type="text" name="first-name" autocomplete="given-name" required>
+              </div>
+      
+              <div class="mt-3 sm:mt-0 form__field">
+                <label for="last-name">
+                  Last name
+                  <span data-required="true" aria-hidden="true"></span>
+                </label>
+                <input id="last-name"  type="text" name="last-name" autocomplete="family-name" required>
+              </div> -->
+              <div class="mt-3 sm:mt-0 form__field">
+                <label for="last-name">
+                    Nombre de la veterinaria
+                  <span data-required="true" aria-hidden="true"></span>
+                </label>
+                <input type="text" class="form-control" name="nombre_veterinaria" autocomplete="family-name" required>
+              </div>
+            </div>
+      
+            <div class="d-flex align-items-center justify-center sm:justify-end mt-4 sm:mt-5">
+              <button type="button" data-action="next">
+                Continue
+              </button>
+            </div>
+          </section>
+          <!-- / End Step 1 -->
+      
+          <!-- Step 2 -->
+          
+          <!-- <section id="progress-form__panel-2" role="tabpanel" aria-labelledby="progress-form__tab-2" tabindex="0" hidden>
+            <div class="mt-3 form__field">
+                <label for="phone-number">
+                  Phone number (optional)
+                </label>
+                <input id="phone-number" name="phone-number" type="tel" name="phone-number" autocomplete="tel" inputmode="tel" required>
+              </div>
+      
+            <div class="d-flex flex-column-reverse sm:flex-row align-items-center justify-center sm:justify-end mt-4 sm:mt-5">
+              <button type="button" class="mt-1 sm:mt-0 button--simple" data-action="prev">
+                Atrás
+              </button>
+              <button type="button" data-action="next">
+                Continuar
+              </button>
+            </div>
+          </section> -->
+          <!-- / End Step 2 -->
+      
+          <!-- Step 3 -->
+          <section id="progress-form__panel-3" role="tabpanel" aria-labelledby="progress-form__tab-3" tabindex="0" hidden>
+            <div class="mt-3 form__field">
+                <div class=" mt-5 mb-5 ml-5 mr-5">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-12 mt-2">
+                            <input id="pac-input" class="form-control" type="text" placeholder="Search Box"/>
+                          </div>
+                          <div class="col-12 mt-2">
+                            <div id="map">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+            
+
+            <div class="d-flex flex-column-reverse sm:flex-row align-items-center justify-center sm:justify-end mt-4 sm:mt-5">
+              <button type="button" class="mt-1 sm:mt-0 button--simple" data-action="prev">
+                Back
+              </button>
+              <div id="confirmar-submit">
+                <button type="submit" id="submit-confirmacion">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- / End Step 3 -->
+      
+          <!-- Thank You -->
+          <section id="progress-form__thank-you" hidden>
+            <p>Thank you for your submission!</p>
+            <p>We appreciate you contacting us. One of our team members will get back to you very&nbsp;soon.</p>
+          </section>
+          <!-- / End Thank You -->
+      
+        <input type="hidden" name="lat" id="lat" value="" required>
+        <input type="hidden" name="lng" id="lng" value="" required>
+
+        <!-- / End Progress Form -->
+   
+</form>
+   <!-- Modal -->
+   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+   aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmar datos personales</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body" id="modal-body2">
+         <li>Está localización es correcta?</span></li>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver a marcar</button>
+         <button type="button"  class="btn btn-primary" id="acepto-ubicacion" data-bs-dismiss="modal">Si</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+      </div>
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFipNOUTn8LjisXG6Ei2IQiB1T2fb4xA&callback=initAutocomplete&libraries=places&v=weekly"
+      defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"></script>
+    <script src="{% static 'step/index.js' %}"></script>
+    <!--<script src="script.js"></script>-->
+</body>
+</html>

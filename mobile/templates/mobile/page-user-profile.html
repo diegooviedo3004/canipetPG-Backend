@@ -1,0 +1,74 @@
+{% extends 'mobile/layout.html' %}
+
+{% load static %}
+
+{%block content%}
+    
+    <div class="page-content-wrapper py-3">
+      <div class="container">
+        <!-- User Information-->
+        <div class="card user-info-card mb-3">
+          <div class="card-body d-flex align-items-center">
+            <!-- Icon -->
+              <div class="feature-card mx-auto text-center">
+                {% if paciente.especie == "Canino" %}
+                <div class="card shadow mx-auto"><img src="{% static 'mobile/img/demo-img/caninos.png' %}" alt=""></div>
+                {%elif paciente.especie == "Felino" %}
+                <div class="card shadow mx-auto"><img src="{% static 'mobile/img/demo-img/felino.png' %}" alt=""></div>
+                {%elif paciente.especie == "Bovino" %}
+                <div class="card shadow mx-auto"><img src="{% static 'mobile/img/demo-img/bovinos.png' %}" alt=""></div>
+                {%elif paciente.especie == "Aves" %}
+                <div class="card shadow mx-auto"><img src="{% static 'mobile/img/demo-img/aves.png' %}" alt=""></div>
+                {%elif paciente.especie == "Conejo" %}
+                <div class="card shadow mx-auto"><img src="{% static 'mobile/img/demo-img/conejos.png' %}" alt=""></div>
+                {%elif paciente.especie == "Reptiles" %}
+                <div class="card shadow mx-auto"><img src="{% static 'mobile/img/demo-img/reptiles.png' %}" alt=""></div>
+                {%elif paciente.especie == "Anfibios" %}
+                <div class="card shadow mx-auto"><img src="{% static 'mobile/img/demo-img/anfibios.png' %}" alt=""></div>
+                {%elif paciente.especie == "Otro" %}
+                <div class="card shadow mx-auto"><img src="{% static 'mobile/img/demo-img/otros.png' %}" alt=""></div>
+                {%endif%}
+            <div class="user-info">
+              <div class="d-flex align-items-center">
+                <h5 class="mb-1">{{ paciente.nombre }}</h5><span class="badge bg-warning ms-2 rounded-pill">{{ paciente.especie }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- User Meta Data-->
+        <div class="card user-data-card">
+          <div class="card-body">
+              <div class="form-group mb-3">
+                <label class="form-label" for="Username">Nombre</label>
+                <input class="form-control" id="Username" type="text" value="{{ paciente.nombre }}">
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label" for="fullname">Fecha de nacimiento</label>
+                <input class="form-control" id="fullname" type="text" value="{{ paciente.fecha_nacimiento }}" readonly>
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label" for="email">Especie</label>
+                <input class="form-control" type="text" value="{{ paciente.especie }}" readonly>
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label" for="job">Raza</label>
+                <input class="form-control" id="job" type="text" value="{{ paciente.raza }}" readonly>
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label">Peso</label>
+                <input class="form-control" id="portfolio" type="url" value="{{ paciente.peso }}" readonly>
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label">Castrado</label>
+                {%if paciente.castrado == False %}
+                <input class="form-control" type="text" value="No" readonly>
+                {% else %}
+                <input class="form-control" value="Si" readonly>
+                {% endif %}
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

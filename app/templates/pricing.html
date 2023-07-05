@@ -1,0 +1,184 @@
+{% extends 'layout.html' %}
+{% block title %}
+Productos
+{% endblock %}
+
+{%block main%}
+<div class="container">
+    <p>
+        <a  href="{{ request.META.HTTP_REFERER }}" class="text-decoration-none">
+            Volver atrás
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg>
+        </a>
+    </p>
+
+    <div class="row">
+        <div class="col-md-10 col-xl-8 mx-auto">
+            <h1 class="text-center">Tenemos planes para todos</h1>
+            <p class="lead text-center mb-4">Comienza a ampliar tu veterinaria</p>
+
+    
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="monthly">
+                    <div class="row py-4">
+                        <div class="col-sm-4 mb-3 mb-md-0">
+                            <div class="card text-center h-100">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="mb-4">
+                                        <h5>Básico</h5>
+                                        <span class="display-4">$6.99</span>
+                                    </div>
+                                    <h6>Includes:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            10 Registros de pacientes.
+                                        </li>
+
+                                    </ul>
+                                    <div class="mt-auto">
+                                        <button class="btn btn-lg btn-outline-primary stripe_btn" data-id="1">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-md-0">
+                            <div class="card text-center h-100">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="mb-4">
+                                        <h5>Standard</h5>
+                                        <span class="display-4">$8.99</span>
+                                        <span>/mo</span>
+                                    </div>
+                                    <h6>Includes:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            15 Registros de pacientes.
+                                        </li>
+\
+                                    </ul>
+                                    <div class="mt-auto">
+                                        <button class="btn btn-lg btn-outline-primary stripe_btn" data-id="2">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-md-0">
+                            <div class="card text-center h-100">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="mb-4">
+                                        <h5>Pro</h5>
+                                        <span class="display-4">$9.99</span>
+                                        <span>/mo</span>
+                                    </div>
+                                    <h6>Includes:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            20 Registros de pacientes.
+                                        </li>
+
+
+                                    </ul>
+                                    <div class="mt-auto">
+                                        <button class="btn btn-lg btn-outline-primary stripe_btn" data-id="3">Comprar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <hr>
+    
+             <div class="text-center my-4">
+                <h2>Frequently asked questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-sm-6 ml-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h6 card-title">Do I need a credit card to sign up?</h5>
+                            <p class="mb-0">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+                                vel, luctus pulvinar, hendrerit id, lorem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6 mr-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h6 card-title">Do you offer a free trial?</h5>
+                            <p class="mb-0">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+                                vel, luctus pulvinar, hendrerit id, lorem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6 ml-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h6 card-title">What if I decide to cancel my plan?</h5>
+                            <p class="mb-0">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+                                vel, luctus pulvinar, hendrerit id, lorem.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6 mr-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h6 card-title">Can I cancel at anytime?</h5>
+                            <p class="mb-0">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+                                vel, luctus pulvinar, hendrerit id, lorem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+    </div>
+    {% csrf_token %}
+    <script src="https://js.stripe.com/v3/"></script>
+    <script defer>
+      var stripe = Stripe("{{STRIPE_PUBLIC_KEY}}");
+      const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+      const checkoutBtns = document.querySelectorAll(".stripe_btn");
+      checkoutBtns.forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const res = await fetch(`checkout-session/${btn.dataset.id}/`, {
+            method: "POST",
+            headers: {
+              "X-CSRFToken": csrftoken,
+            },
+          });
+          const data = await res.json();
+          const stripe_data = await stripe.redirectToCheckout({ sessionId: data.id });
+        });
+      });
+    </script>
+   
+<style>
+
+.card {
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,.025);
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e5e9f2;
+    border-radius: .2rem;
+}
+</style>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4b9ba14b0f.js" crossorigin="anonymous"></script>
+    <link href="{% static 'app/css/404.css' %}" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="{% static 'app/img/logo.png' %}">
+    <title>404</title>
+</head>
+
+<body>
+    <div class="mainbox">
+        <div class="err">4</div>
+        <i class="far fa-question-circle fa-spin"></i>
+        <div class="err2">4</div>
+        <div class="msg">No se encontró la pagina<p>Ir al <a href="{%url 'home'%}">home</a></p>
+        </div>
+    </div>
+</body>
+</html>
