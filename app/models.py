@@ -30,7 +30,7 @@ class client(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.nombre}"
+        return f"{self.nombre} {self.apellido} - {self.cedula}"
     
     def get_full_name(self):
         return f"{self.nombre} {self.apellido}"
@@ -94,7 +94,7 @@ class Product(models.Model):
     precio = models.DecimalField(validators=[non_negative_validator], max_digits=10, decimal_places=2)
     descripcion = models.TextField()
     promocionar_a = models.ManyToManyField(client, blank=True)
-    descuento = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
+    descuento = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True, validators=[non_negative_validator])
     activa = models.BooleanField(default=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -185,6 +185,10 @@ def create_user(request):
     form = ClientForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
+            cedula = form.cleaned_data['cedula']
+            if client.objects.filter(cedula=cedula).exists():
+                messages.error(request, "Introduzca una cédula no existente")
+                return redirect(to="create_user")
             form.instance.user = request.user
             form.save()
             return redirect('clientes')
